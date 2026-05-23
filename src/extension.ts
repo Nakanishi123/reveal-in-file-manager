@@ -38,7 +38,10 @@ function getConfig(): ExtensionConfig {
 	};
 }
 
-export function resolveFileManager(fileManager: FileManager, desktop = process.env.XDG_CURRENT_DESKTOP ?? ''): ResolvedFileManager {
+export function resolveFileManager(
+	fileManager: FileManager,
+	desktop = process.env.XDG_CURRENT_DESKTOP ?? '',
+): ResolvedFileManager {
 	if (fileManager !== 'auto') {
 		return fileManager;
 	}
@@ -52,7 +55,11 @@ export function resolveFileManager(fileManager: FileManager, desktop = process.e
 	return 'nautilus';
 }
 
-export function buildLaunchCommand(fileManager: ResolvedFileManager, targetPath: string, isDirectory: boolean): LaunchCommand {
+export function buildLaunchCommand(
+	fileManager: ResolvedFileManager,
+	targetPath: string,
+	isDirectory: boolean,
+): LaunchCommand {
 	if (isDirectory) {
 		return {
 			command: fileManager,
@@ -104,14 +111,20 @@ async function revealUri(uri?: vscode.Uri): Promise<void> {
 	const config = getConfig();
 	const fileManager = resolveFileManager(config.fileManager);
 	const isDirectory = stat.isDirectory();
-	const launchCommand = buildLaunchCommand(fileManager, targetPath, isDirectory);
+	const launchCommand = buildLaunchCommand(
+		fileManager,
+		targetPath,
+		isDirectory,
+	);
 
 	try {
 		await execFileAsync(launchCommand.command, launchCommand.args);
 		return;
 	} catch (error) {
 		if (isDirectory || !config.fallbackToOpenFolder) {
-			vscode.window.showErrorMessage(`Failed to reveal file: ${getErrorMessage(error)}`);
+			vscode.window.showErrorMessage(
+				`Failed to reveal file: ${getErrorMessage(error)}`,
+			);
 			return;
 		}
 	}
@@ -119,12 +132,17 @@ async function revealUri(uri?: vscode.Uri): Promise<void> {
 	try {
 		await execFileAsync(fileManager, [path.dirname(targetPath)]);
 	} catch (error) {
-		vscode.window.showErrorMessage(`Failed to reveal file: ${getErrorMessage(error)}`);
+		vscode.window.showErrorMessage(
+			`Failed to reveal file: ${getErrorMessage(error)}`,
+		);
 	}
 }
 
 export function activate(context: vscode.ExtensionContext) {
-	const disposable = vscode.commands.registerCommand('revealInFileManager.reveal', revealUri);
+	const disposable = vscode.commands.registerCommand(
+		'revealInFileManager.reveal',
+		revealUri,
+	);
 
 	context.subscriptions.push(disposable);
 }

@@ -15,16 +15,22 @@ suite('Extension Test Suite', () => {
 	});
 
 	test('builds select command for files', () => {
-		assert.deepStrictEqual(buildLaunchCommand('dolphin', '/tmp/example file.txt', false), {
-			command: 'dolphin',
-			args: ['--select', '/tmp/example file.txt'],
-		});
+		assert.deepStrictEqual(
+			buildLaunchCommand('dolphin', '/tmp/example file.txt', false),
+			{
+				command: 'dolphin',
+				args: ['--select', '/tmp/example file.txt'],
+			},
+		);
 	});
 
 	test('builds open command for folders', () => {
-		assert.deepStrictEqual(buildLaunchCommand('nautilus', '/tmp/example folder', true), {
-			command: 'nautilus',
-			args: ['/tmp/example folder'],
-		});
+		assert.deepStrictEqual(
+			buildLaunchCommand('nautilus', '/tmp/example folder', true),
+			{
+				command: 'nautilus',
+				args: ['/tmp/example folder'],
+			},
+		);
 	});
 });

@@ -19,10 +19,10 @@ Press `F5` in VS Code to launch an Extension Development Host.
 
 Run **Reveal in File Manager** from:
 
-* Explorer context menu
-* Editor context menu
-* Editor title context menu
-* Command Palette
+- Explorer context menu
+- Editor context menu
+- Editor title context menu
+- Command Palette
 
 When a file is selected, the extension asks the file manager to select that file. If selection fails and fallback is enabled, it opens the parent folder. When a folder is selected, the folder is opened directly.
 
@@ -30,8 +30,8 @@ When a file is selected, the extension asks the file manager to select that file
 
 This extension contributes the following settings:
 
-* `revealInFileManager.fileManager`: Selects the file manager. Supported values are `auto`, `nautilus`, and `dolphin`. The default is `auto`.
-* `revealInFileManager.fallbackToOpenFolder`: Opens the parent folder when file selection fails. The default is `true`.
+- `revealInFileManager.fileManager`: Selects the file manager. Supported values are `auto`, `nautilus`, and `dolphin`. The default is `auto`.
+- `revealInFileManager.fallbackToOpenFolder`: Opens the parent folder when file selection fails. The default is `true`.
 
 ## Ubuntu Example
 

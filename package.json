@@ -1,87 +1,91 @@
 {
-  "name": "reveal-in-file-manager",
-  "displayName": "Reveal in File Manager",
-  "description": "Reveal local files and folders in Nautilus or Dolphin on Linux.",
-  "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.120.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onCommand:revealInFileManager.reveal"
-  ],
-  "main": "./out/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "revealInFileManager.reveal",
-        "title": "Reveal in File Manager"
-      }
-    ],
-    "menus": {
-      "explorer/context": [
-        {
-          "command": "revealInFileManager.reveal",
-          "when": "resourceScheme == file",
-          "group": "navigation@90"
-        }
-      ],
-      "editor/context": [
-        {
-          "command": "revealInFileManager.reveal",
-          "when": "resourceScheme == file",
-          "group": "navigation@90"
-        }
-      ],
-      "editor/title/context": [
-        {
-          "command": "revealInFileManager.reveal",
-          "when": "resourceScheme == file",
-          "group": "navigation@90"
-        }
-      ]
-    },
-    "configuration": {
-      "title": "Reveal in File Manager",
-      "properties": {
-        "revealInFileManager.fileManager": {
-          "type": "string",
-          "default": "auto",
-          "enum": [
-            "auto",
-            "nautilus",
-            "dolphin"
-          ],
-          "description": "File manager used to reveal files and folders."
-        },
-        "revealInFileManager.fallbackToOpenFolder": {
-          "type": "boolean",
-          "default": true,
-          "description": "Open the parent folder when revealing the selected file fails."
-        }
-      }
-    }
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src",
-    "test": "vscode-test",
-    "package": "vsce package"
-  },
-  "devDependencies": {
-    "@types/mocha": "^10.0.10",
-    "@types/node": "22.x",
-    "@types/vscode": "^1.120.0",
-    "@vscode/test-cli": "^0.0.12",
-    "@vscode/test-electron": "^2.5.2",
-    "@vscode/vsce": "^3.9.1",
-    "eslint": "^9.39.3",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.56.1"
-  }
+	"name": "reveal-in-file-manager",
+	"displayName": "Reveal in File Manager",
+	"description": "Reveal local files and folders in Nautilus or Dolphin on Linux.",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.120.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Nakanishi123/reveal-in-file-manager.git"
+	},
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "revealInFileManager.reveal",
+				"title": "Reveal in File Manager"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "revealInFileManager.reveal",
+					"when": "resourceScheme == file",
+					"group": "navigation@90"
+				}
+			],
+			"editor/context": [
+				{
+					"command": "revealInFileManager.reveal",
+					"when": "resourceScheme == file",
+					"group": "navigation@90"
+				}
+			],
+			"editor/title/context": [
+				{
+					"command": "revealInFileManager.reveal",
+					"when": "resourceScheme == file",
+					"group": "navigation@90"
+				}
+			]
+		},
+		"configuration": {
+			"title": "Reveal in File Manager",
+			"properties": {
+				"revealInFileManager.fileManager": {
+					"type": "string",
+					"default": "auto",
+					"enum": [
+						"auto",
+						"nautilus",
+						"dolphin"
+					],
+					"description": "File manager used to reveal files and folders."
+				},
+				"revealInFileManager.fallbackToOpenFolder": {
+					"type": "boolean",
+					"default": true,
+					"description": "Open the parent folder when revealing the selected file fails."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src",
+		"test": "vscode-test",
+		"package": "vsce package",
+		"format": "prettier --write .",
+		"format:check": "prettier --check ."
+	},
+	"devDependencies": {
+		"@types/mocha": "^10.0.10",
+		"@types/node": "^22.19.19",
+		"@types/vscode": "^1.120.0",
+		"@vscode/test-cli": "^0.0.12",
+		"@vscode/test-electron": "^2.5.2",
+		"@vscode/vsce": "^3.9.1",
+		"eslint": "^9.39.3",
+		"prettier": "^3.8.3",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.56.1"
+	}
 }

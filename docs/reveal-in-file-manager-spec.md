@@ -206,11 +206,11 @@ dolphin
 
 各設定値の意味は以下とする。
 
-| 値 | 意味 |
-|---|---|
-| `auto` | デスクトップ環境から自動判定する |
-| `nautilus` | Nautilusを使う |
-| `dolphin` | Dolphinを使う |
+| 値         | 意味                             |
+| ---------- | -------------------------------- |
+| `auto`     | デスクトップ環境から自動判定する |
+| `nautilus` | Nautilusを使う                   |
+| `dolphin`  | Dolphinを使う                    |
 
 ### 7.2 フォールバック設定
 
@@ -236,11 +236,11 @@ true
 
 判定ルールは以下とする。
 
-| 条件 | 使用するファイルマネージャー |
-|---|---|
-| `XDG_CURRENT_DESKTOP` に `KDE` を含む | `dolphin` |
-| `XDG_CURRENT_DESKTOP` に `GNOME` を含む | `nautilus` |
-| それ以外 | `nautilus` |
+| 条件                                    | 使用するファイルマネージャー |
+| --------------------------------------- | ---------------------------- |
+| `XDG_CURRENT_DESKTOP` に `KDE` を含む   | `dolphin`                    |
+| `XDG_CURRENT_DESKTOP` に `GNOME` を含む | `nautilus`                   |
+| それ以外                                | `nautilus`                   |
 
 Kubuntuでは通常 `KDE` が含まれる想定なので、`auto` の場合は `dolphin` を使用する。
 
@@ -513,13 +513,13 @@ type FileManager = 'auto' | 'nautilus' | 'dolphin';
 type ResolvedFileManager = 'nautilus' | 'dolphin';
 
 interface ExtensionConfig {
-  fileManager: FileManager;
-  fallbackToOpenFolder: boolean;
+	fileManager: FileManager;
+	fallbackToOpenFolder: boolean;
 }
 
 interface LaunchCommand {
-  command: string;
-  args: string[];
+	command: string;
+	args: string[];
 }
 ```
 
