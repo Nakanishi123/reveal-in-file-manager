@@ -2,7 +2,7 @@
 	"name": "reveal-in-file-manager",
 	"displayName": "Reveal in File Manager",
 	"description": "Reveal local files and folders in Nautilus or Dolphin on Linux.",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.120.0"
 	},
